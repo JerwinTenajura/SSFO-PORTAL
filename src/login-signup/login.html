@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Animated Login Signup</title>
+    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2" rel="stylesheet">
+</head>
+
+<!-- Body -->
+
+<body class="bg-gray-100 flex justify-center items-center flex-col min-h-screen">
+    <div class="background-shape circle-one"></div>
+    <div class="background-shape circle-two"></div>
+    <div class="background-shape square-one"></div>
+    <div class="background-shape square-two"></div>
+    <div class="background-shape square-three"></div>
+    <div class="background-shape triangle-one"></div>
+    <div class="background-shape triangle-two"></div>
+    <div class="background-shape triangle-three"></div>
+    <div class="background-shape triangle-three1"></div>
+    <div class="background-shape rectangle-one"></div>
+    <div class="background-shape rectangle-two"></div>
+    <div id="toastBox"></div>
+
+    <!-- Signup -->
+
+    <div class="container mx-auto relative flex flex-col justify-center items-center overflow-hidden bg-white shadow-lg rounded-lg"
+        id="container">
+        <div class="form-container sign-up-container">
+            <form action="#" id="signupForm">
+                <h1>Create Account</h1>
+                <div class="social-container">
+                    <a href="#" class="social" id="twitterLog"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social" id="googleLog"><i class="fab fa-google"></i></a>
+                    <a href="#" class="social" id="facebookLog"><i class="fab fa-facebook-f"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+                <input type="text" id="name" placeholder="Name" required />
+                <input type="email" id="email" placeholder="Email" required />
+                <input type="password" id="password" placeholder="Password" required />
+                <button
+                    class="rounded-full border border-red-600 bg-red-600 text-white font-bold uppercase py-3 px-6 transition-transform duration-300 ease-in-out transform hover:scale-95 focus:outline-none"
+                    type="submit">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Signin -->
+
+        <div class="form-container sign-in-container">
+            <form action="#" id="loginForm">
+                <h1>Sign in</h1>
+                <div class="social-container">
+                    <a href="#" class="social" id="twitterLogin"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social" id="googleLogin"><i class="fab fa-google"></i></a>
+                    <a href="#" class="social" id="facebookLogin"><i class="fab fa-facebook-f"></i></a>
+                </div>
+                <span>or use your account</span>
+                <input type="email" id="loginEmail" placeholder="Email" required />
+                <input type="password" id="loginPassword" placeholder="Password" required />
+                <a href="#" class="forgot-password">Forgot your password?</a>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+
+        <!-- Overlay -->
+
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <img src="./img/ssfo-logo.png" alt="ssfo">
+                    <h1>SSFO PORTAL</h1>
+                    <p>PROVINCE OF ZAMBOANGA DEL SUR</p>
+                    <p>To keep connected login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <img src="./img/ssfo-logo.png" alt="ssfo">
+                    <h1>SSFO PORTAL</h1>
+                    <p>PROVINCE OF ZAMBOANGA DEL SUR</p>
+                    <p class="signup-tag">Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="./database.js"></script>
+    <script src="./auth.js"></script>
+
+    <script>
+        // JS FOR ANIMATION
+        const signUpButton = document.getElementById("signUp");
+        const signInButton = document.getElementById("signIn");
+        const container = document.getElementById("container");
+
+        signUpButton.addEventListener("click", () =>
+            container.classList.add("right-panel-active")
+        );
+
+        signInButton.addEventListener("click", () =>
+            container.classList.remove("right-panel-active")
+        );
+    </script>
+</body>
+
+</html>
